@@ -1,12 +1,71 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Skills from '@/components/Skills';
+import Experience from '@/components/Experience';
+import Projects from '@/components/Projects';
+import Certifications from '@/components/Certifications';
+import Resume from '@/components/Resume';
+import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Certifications />
+        <Resume />
+        <Contact />
+      </main>
+      
+      {/* Footer */}
+      <footer className="bg-muted/50 border-t border-border py-12">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold text-gradient mb-2">Shreya Srivastava</h3>
+            <p className="text-muted-foreground">Full Stack Developer • Fresh Graduate • Tech Enthusiast</p>
+          </div>
+          
+          <div className="flex justify-center space-x-6 mb-6">
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              GitHub
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="mailto:shhreyasrivastava@gmail.com"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Email
+            </a>
+          </div>
+          
+          <div className="border-t border-border pt-6">
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Shreya Srivastava. Crafted with ❤️ using React & Tailwind CSS.
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Always open to new opportunities and exciting projects.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
