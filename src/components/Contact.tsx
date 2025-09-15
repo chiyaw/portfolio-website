@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Calendar } from 'lucide-react';
+import { PERSONAL_INFO, SOCIAL_LINKS, CONTACT_INFO, getEmailLink, getPhoneLink } from '@/lib/constants';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ ${formData.message}
       `;
 
       // Create mailto link (this will open the user's email client)
-      const mailtoLink = `mailto:shhreyasrivastava@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = getEmailLink(formData.subject, emailBody);
       
       // Open email client
       window.location.href = mailtoLink;
@@ -62,7 +63,7 @@ ${formData.message}
     } catch (error) {
       toast({
         title: "Something went wrong",
-        description: "Please try again or contact me directly at shhreyasrivastava@gmail.com",
+        description: `Please try again or contact me directly at ${PERSONAL_INFO.email}`,
         variant: "destructive",
       });
     } finally {
@@ -70,12 +71,20 @@ ${formData.message}
     }
   };
 
-  const handleLocationClick = () => {
-    // This would typically redirect to a map or location
-    window.open('https://maps.google.com', '_blank');
+  // const handleLocationClick = () => {
+  //   // This would typically redirect to a map or location
+  //   window.open('', '_blank');
+  //   toast({
+  //     title: "Location clicked!",
+  //     description: "Opening map in a new tab...",
+  //   });
+  // };
+
+  const handleAvailabilityClick = () => {
+    window.open(getPhoneLink(), '_blank');
     toast({
-      title: "Location clicked!",
-      description: "Opening map in a new tab...",
+      title: "Availability clicked!",
+      description: "Opening phone number in a new tab...",
     });
   };
 
@@ -83,20 +92,20 @@ ${formData.message}
     {
       icon: Mail,
       label: 'Email',
-      value: 'shhreyasrivastava@gmail.com',
-      action: () => window.location.href = 'mailto:shhreyasrivastava@gmail.com'
+      value: PERSONAL_INFO.email,
+      action: () => window.location.href = getEmailLink()
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Remote / India',
-      action: handleLocationClick
+      value: PERSONAL_INFO.location,
+      // action: handleLocationClick
     },
     {
       icon: Phone,
       label: 'Availability',
-      value: 'Available for opportunities',
-      action: null
+      value: CONTACT_INFO.availabilityText,
+      action: handleAvailabilityClick
     }
   ];
 
@@ -104,27 +113,39 @@ ${formData.message}
     {
       icon: Github,
       label: 'GitHub',
-      url: 'https://github.com',
+      url: SOCIAL_LINKS.github,
       color: 'hover:text-primary'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: SOCIAL_LINKS.linkedin,
       color: 'hover:text-primary'
     },
     {
       icon: Mail,
       label: 'Email',
-      url: 'mailto:shhreyasrivastava@gmail.com',
+      url: getEmailLink(),
       color: 'hover:text-primary'
     },
+    // {
+    //   icon: Calendar,
+    //   label: 'Schedule Call',
+    //   url: '#',
+    //   color: 'hover:text-secondary'
+    // }
     {
-      icon: Calendar,
-      label: 'Schedule Call',
-      url: '#',
-      color: 'hover:text-secondary'
-    }
+      icon: Phone,
+      label: 'Phone',
+      url: getPhoneLink(),
+      color: 'hover:text-primary'
+    },
+    // {
+    //   icon: Phone,
+    //   label: 'Instagram',
+    //   url: SOCIAL_LINKS.instagram,
+    //   color: 'hover:text-primary'
+    // }
   ];
 
   return (
@@ -202,7 +223,7 @@ ${formData.message}
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Quick Response</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    I typically respond to emails within 24 hours. For urgent matters, feel free to mention it in your subject line.
+                    {CONTACT_INFO.quickResponse}
                   </p>
                 </div>
               </div>
@@ -295,7 +316,7 @@ ${formData.message}
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center">
-                  This form will open your email client with a pre-filled message to shhreyasrivastava@gmail.com
+                  This form will open your email client with a pre-filled message to {PERSONAL_INFO.email}
                 </p>
               </form>
             </CardContent>

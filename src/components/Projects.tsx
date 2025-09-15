@@ -2,67 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Clock, CheckCircle } from 'lucide-react';
+import { COMPLETED_PROJECTS, IN_PROGRESS_PROJECTS } from '@/lib/constants';
 
 const Projects = () => {
-  const completedProjects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with React frontend, Node.js backend, and MongoDB database. Features include user authentication, product catalog, shopping cart, and payment integration.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe API', 'JWT'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: '🛒',
-      status: 'Completed'
-    },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Built with modern React patterns and WebSocket integration.',
-      technologies: ['React', 'TypeScript', 'Socket.io', 'PostgreSQL', 'Tailwind CSS'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: '📋',
-      status: 'Completed'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'An interactive weather dashboard displaying current conditions, forecasts, and historical data with beautiful visualizations and location-based services.',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Geolocation API'],
-      githubUrl: '#',
-      liveUrl: '#',
-      image: '🌤️',
-      status: 'Completed'
-    }
-  ];
-
-  const inProgressProjects = [
-    {
-      title: 'Social Media Analytics Platform',
-      description: 'A comprehensive analytics platform for social media metrics with data visualization, reporting features, and API integrations for multiple platforms.',
-      technologies: ['Next.js', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
-      progress: 75,
-      image: '📊',
-      status: 'In Progress',
-      expectedCompletion: 'Q2 2024'
-    },
-    {
-      title: 'AI-Powered Chat Application',
-      description: 'Building an intelligent chat application with AI integration, real-time messaging, and smart response suggestions using modern ML APIs.',
-      technologies: ['React', 'OpenAI API', 'WebRTC', 'Firebase', 'TensorFlow.js'],
-      progress: 60,
-      image: '🤖',
-      status: 'In Progress',
-      expectedCompletion: 'Q3 2024'
-    },
-    {
-      title: 'Portfolio CMS',
-      description: 'A content management system specifically designed for developers to showcase their work with customizable themes and easy content management.',
-      technologies: ['Svelte', 'Supabase', 'TypeScript', 'Tailwind CSS'],
-      progress: 40,
-      image: '🎨',
-      status: 'In Progress',
-      expectedCompletion: 'Q4 2024'
-    }
-  ];
+  const completedProjects = COMPLETED_PROJECTS;
+  const inProgressProjects = IN_PROGRESS_PROJECTS;
 
   return (
     <section id="projects" className="section-padding">
@@ -159,9 +103,9 @@ const Projects = () => {
                         style={{ width: `${project.progress}%` }}
                       ></div>
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    {/* <div className="text-xs text-muted-foreground">
                       Expected completion: {project.expectedCompletion}
-                    </div>
+                    </div> */}
                   </div>
                   
                   <div className="flex flex-wrap gap-2">
@@ -177,30 +121,6 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <Card className="bg-gradient-card border-none max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-gradient mb-4">
-                Interested in my work?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                I'm always working on new projects and love to collaborate. Check out my GitHub for more repositories 
-                or get in touch to discuss potential opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  <Github className="h-4 w-4 mr-2" />
-                  View All Repositories
-                </Button>
-                <Button className="btn-nature">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Get In Touch
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );

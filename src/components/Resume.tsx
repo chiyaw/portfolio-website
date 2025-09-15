@@ -2,58 +2,27 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Download, Eye, FileText, Star, Award, Briefcase, GraduationCap } from 'lucide-react';
+import { PERSONAL_INFO, PROFESSIONAL_INFO, RESUME_INFO, RESUME_HIGHLIGHTS, TECHNICAL_SKILLS } from '@/lib/constants';
 
 const Resume = () => {
-  const resumeHighlights = [
-    {
-      icon: GraduationCap,
-      title: 'Education',
-      items: [
-        'Bachelor\'s in Computer Science/Engineering',
-        'Relevant coursework in Web Development, Data Structures, Algorithms',
-        'Strong foundation in programming principles and software design'
-      ]
-    },
-    {
-      icon: Briefcase,
-      title: 'Experience',
-      items: [
-        'Full Stack Developer at BangHome (2024 - Present)',
-        'Hands-on experience with modern web technologies',
-        'Fresh graduate with practical industry exposure'
-      ]
-    },
-    {
-      icon: Award,
-      title: 'Certifications',
-      items: [
-        'Full Stack Web Development - freeCodeCamp',
-        'React Developer Certification - Meta',
-        'JavaScript Algorithms & Data Structures - freeCodeCamp'
-      ]
-    },
-    {
-      icon: Star,
-      title: 'Key Strengths',
-      items: [
-        'Quick learner with adaptability to new technologies',
-        'Strong problem-solving and analytical thinking',
-        'Excellent communication and teamwork skills'
-      ]
-    }
-  ];
+  const iconMap = {
+    GraduationCap,
+    Briefcase,
+    Award,
+    Star
+  };
 
-  const technicalSkills = [
-    'React.js', 'Node.js', 'TypeScript', 'JavaScript', 'Python',
-    'MongoDB', 'PostgreSQL', 'Express.js', 'Next.js', 'Tailwind CSS',
-    'Git & GitHub', 'AWS', 'REST APIs', 'Responsive Design', 'Agile/Scrum'
-  ];
+  const resumeHighlights = RESUME_HIGHLIGHTS.map(highlight => ({
+    ...highlight,
+    icon: iconMap[highlight.icon as keyof typeof iconMap]
+  }));
+
+  const technicalSkills = TECHNICAL_SKILLS;
 
   const handleDownloadResume = () => {
-    // In a real implementation, this would download the actual resume file
     const link = document.createElement('a');
-    link.href = '#'; // This would be the actual resume file URL
-    link.download = 'Shreya_Srivastava_Resume.pdf';
+    link.href = RESUME_INFO.url;
+    link.download = `${PERSONAL_INFO.name.replace(' ', '_')}_Resume.pdf`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -61,7 +30,7 @@ const Resume = () => {
 
   const handleViewResume = () => {
     // In a real implementation, this would open the resume in a new tab
-    window.open('#', '_blank'); // This would be the actual resume file URL
+    window.open(RESUME_INFO.url, '_blank');
   };
 
   return (
@@ -84,7 +53,7 @@ const Resume = () => {
                 </div>
                 <CardTitle className="text-xl text-gradient">Professional Resume</CardTitle>
                 <p className="text-muted-foreground text-sm">
-                  Updated for 2024 • Fresh Graduate Profile
+                  Updated for 2025 • {PROFESSIONAL_INFO.currentPosition} Profile
                 </p>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -113,7 +82,7 @@ const Resume = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Current Role:</span>
-                      <span className="text-primary font-medium">Full Stack Dev</span>
+                      <span className="text-primary font-medium">{PROFESSIONAL_INFO.currentPosition}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Availability:</span>
@@ -121,7 +90,7 @@ const Resume = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Location:</span>
-                      <span className="text-primary font-medium">Remote/India</span>
+                      <span className="text-primary font-medium">{PERSONAL_INFO.location}</span>
                     </div>
                   </div>
                 </div>
@@ -138,12 +107,7 @@ const Resume = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  Enthusiastic and dedicated <span className="text-primary font-medium">Full Stack Developer</span> with 
-                  a strong foundation in modern web technologies. Recent graduate with hands-on experience at BangHome, 
-                  bringing fresh perspectives and a passion for creating efficient, user-friendly web applications. 
-                  Proficient in both frontend and backend development with a focus on 
-                  <span className="text-secondary font-medium"> React.js, Node.js, and modern JavaScript frameworks</span>. 
-                  Quick learner with excellent problem-solving skills and a commitment to writing clean, maintainable code.
+                  Enthusiastic and dedicated <span className="text-primary font-medium">{PROFESSIONAL_INFO.currentPosition}</span> with a proven track record of delivering high-impact backend solutions and seamless full-stack features at {PROFESSIONAL_INFO.currentCompany}. Engineered a secure, JWT-based Single Sign-On (SSO) system that slashed authentication time by 40% for a user base of 1,000+. Spearheaded the complete backend migration from MongoDB to PostgreSQL using Drizzle ORM, achieving 100% feature parity and boosting relational data processing speed by 30%. Adept across the stack, with experience driving UI improvements in React and Next.js. Passionate about building scalable, efficient, and user-centric systems.
                 </p>
               </CardContent>
             </Card>

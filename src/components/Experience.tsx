@@ -1,34 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Building2, Calendar, MapPin, Star } from 'lucide-react';
+import { EXPERIENCE_DATA } from '@/lib/constants';
 
 const Experience = () => {
-  const experience = {
-    company: 'BangHome',
-    position: 'Full Stack Developer',
-    type: 'Full-time',
-    startDate: '2024',
-    location: 'Remote',
-    status: 'Current Position',
-    description: [
-      'Developing and maintaining full-stack web applications using modern technologies including React, Node.js, and cloud services',
-      'Collaborating with cross-functional teams to deliver high-quality software solutions within tight deadlines',
-      'Implementing responsive user interfaces and optimizing application performance for better user experience',
-      'Working with databases, APIs, and third-party integrations to build scalable backend systems',
-      'Participating in code reviews, testing, and deployment processes following best practices',
-      'Contributing fresh perspectives and innovative solutions as part of a dynamic development team'
-    ],
-    technologies: [
-      'React.js', 'Node.js', 'TypeScript', 'MongoDB', 'Express.js',
-      'Tailwind CSS', 'Git', 'AWS', 'RESTful APIs', 'Agile/Scrum'
-    ],
-    achievements: [
-      'Successfully delivered multiple features on time as a fresh graduate',
-      'Contributed to improving application performance and user experience',
-      'Actively participated in team knowledge sharing and code review processes',
-      'Demonstrated ability to learn new technologies quickly and effectively'
-    ]
-  };
+  const experience = EXPERIENCE_DATA;
 
   return (
     <section id="experience" className="section-padding bg-muted/30">
@@ -120,22 +96,6 @@ const Experience = () => {
                 </div>
               </div>
 
-              {/* Fresh Graduate Note */}
-              <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Star className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Fresh Graduate Perspective</h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      As a recent graduate stepping into the professional world, I bring enthusiasm, fresh ideas, 
-                      and the latest academic knowledge to my role. I'm eager to learn, grow, and contribute 
-                      meaningfully to every project while building strong foundations for my career in technology.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </CardContent>
           </Card>
         </div>

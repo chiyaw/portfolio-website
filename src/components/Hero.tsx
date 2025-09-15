@@ -2,15 +2,16 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
+import { PERSONAL_INFO, SOCIAL_LINKS, getEmailLink, HERO_ROLES } from '@/lib/constants';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ['Full Stack Developer', 'Frontend Developer', 'Backend Developer'];
+  const roles = HERO_ROLES;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -38,27 +39,28 @@ const Hero = () => {
       <div className="absolute bottom-1/4 left-1/3 w-12 h-12 bg-accent/10 rounded-full animate-float" style={{ animationDelay: '4s' }} />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center px-4 animate-fade-up">
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <span className="text-primary font-medium tracking-wide uppercase text-sm">
             Welcome to my portfolio
           </span>
+        </div> */}
+        
+        <div className="relative">
+          <h3 className="text-lg md:text-xl text-muted-foreground absolute -top-6 left-0 transform -translate-x-4"> I'm </h3>
+          <h1 className="text-hero mb-6"><span className="text-gradient">{PERSONAL_INFO.name}</span></h1>
         </div>
-        
-        <h1 className="text-hero mb-6">
-          Hi, I'm <span className="text-gradient">Shreya</span>
-        </h1>
-        
+
         <div className="text-2xl md:text-3xl mb-8 h-12 flex items-center justify-center">
-          <span className="text-muted-foreground mr-3">I am a</span>
+          <span className="text-muted-foreground mr-3">A</span>
           <span className="text-gradient font-semibold min-w-[280px] text-left transition-all duration-500">
             {roles[currentRole]}
           </span>
         </div>
         
-        <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+        {/* <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
           Passionate about creating beautiful, functional web applications that solve real-world problems. 
           Currently working at BangHome, bringing fresh perspectives to development challenges.
-        </p>
+        </p> */}
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
           <Button 
@@ -80,7 +82,7 @@ const Hero = () => {
 
         <div className="flex items-center justify-center space-x-6">
           <a 
-            href="https://github.com" 
+            href={SOCIAL_LINKS.github} 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300 transform hover:scale-110"
@@ -88,7 +90,7 @@ const Hero = () => {
             <Github className="h-6 w-6" />
           </a>
           <a 
-            href="https://linkedin.com" 
+            href={SOCIAL_LINKS.linkedin} 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300 transform hover:scale-110"
@@ -96,7 +98,7 @@ const Hero = () => {
             <Linkedin className="h-6 w-6" />
           </a>
           <a 
-            href="mailto:shhreyasrivastava@gmail.com"
+            href={getEmailLink()}
             className="text-muted-foreground hover:text-primary transition-colors duration-300 transform hover:scale-110"
           >
             <Mail className="h-6 w-6" />

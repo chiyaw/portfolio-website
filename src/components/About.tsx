@@ -1,29 +1,19 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Code, Coffee, Lightbulb, Target } from 'lucide-react';
+import { PERSONAL_INFO, PROFESSIONAL_INFO, ABOUT_HIGHLIGHTS } from '@/lib/constants';
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Code,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code that stands the test of time'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Innovation',
-      description: 'Always exploring new technologies and methodologies to improve solutions'
-    },
-    {
-      icon: Target,
-      title: 'Goal-Oriented',
-      description: 'Focused on delivering results that exceed expectations and drive success'
-    },
-    {
-      icon: Coffee,
-      title: 'Continuous Learning',
-      description: 'Constantly evolving skills and staying updated with industry trends'
-    }
-  ];
+  const iconMap = {
+    Code,
+    Coffee,
+    Lightbulb,
+    Target
+  };
+
+  const highlights = ABOUT_HIGHLIGHTS.map(highlight => ({
+    ...highlight,
+    icon: iconMap[highlight.icon as keyof typeof iconMap]
+  }));
 
   return (
     <section id="about" className="section-padding bg-muted/30">
@@ -39,22 +29,15 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
               <p className="text-foreground leading-relaxed">
-                I'm <span className="text-gradient font-semibold">Shreya Srivastava</span>, a fresh and enthusiastic developer 
-                currently working at <span className="text-primary font-medium">BangHome</span>. As a recent graduate entering 
-                the tech industry, I bring fresh perspectives and a strong foundation in modern web development technologies.
+                I'm <span className="text-gradient font-semibold">{PERSONAL_INFO.name}</span>, a Full Stack Developer currently working as an <span className="text-primary font-medium">{PROFESSIONAL_INFO.currentPosition} at {PROFESSIONAL_INFO.currentCompany}</span>. I specialize in building clean, scalable web applications and modern technologies.
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                My journey into development started with curiosity about how digital experiences are crafted. 
-                Today, I specialize in building robust full-stack applications, with expertise spanning both 
-                frontend user interfaces and backend systems. I believe in writing clean, efficient code that 
-                not only works but is also maintainable and scalable.
+              I’m driven by a deep understanding of both frontend and backend systems, with a strong focus on performance, security, and user experience. From implementing robust authentication to integrating third-party APIs, I approach each task with clarity and precision.
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-                or brainstorming innovative solutions to everyday problems. I'm always eager to learn and grow, 
-                bringing enthusiasm and dedication to every project I work on.
+              I value clean architecture, consistent learning, and delivering code that works — reliably and efficiently. I'm passionate about solving real problems through thoughtful engineering and am always looking for opportunities that push me to grow and build better.
               </p>
             </div>
 
@@ -62,16 +45,12 @@ const About = () => {
               <h3 className="text-xl font-semibold text-foreground mb-4">Quick Facts</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
-                  <span className="text-muted-foreground">🎓 Recent Graduate & Fresh Perspective</span>
-                </div>
-                <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-secondary rounded-full"></span>
-                  <span className="text-muted-foreground">💼 Currently @ BangHome</span>
+                  <span className="text-muted-foreground">💼 Currently @ {PROFESSIONAL_INFO.currentCompany}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-accent rounded-full"></span>
-                  <span className="text-muted-foreground">📍 Available for Freelance & Full-time Opportunities</span>
+                  <span className="text-muted-foreground">📍 {PROFESSIONAL_INFO.availability}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="w-2 h-2 bg-primary rounded-full"></span>

@@ -7,6 +7,7 @@ import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
 import Resume from '@/components/Resume';
 import Contact from '@/components/Contact';
+import { PERSONAL_INFO, SOCIAL_LINKS, getEmailLink } from '@/lib/constants';
 
 const Index = () => {
   return (
@@ -27,13 +28,13 @@ const Index = () => {
       <footer className="bg-muted/50 border-t border-border py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="mb-6">
-            <h3 className="text-xl font-semibold text-gradient mb-2">Shreya Srivastava</h3>
-            <p className="text-muted-foreground">Full Stack Developer • Fresh Graduate • Tech Enthusiast</p>
+            <h3 className="text-xl font-semibold text-gradient mb-2">{PERSONAL_INFO.name}</h3>
+            <p className="text-muted-foreground">Full Stack Developer • Frontend Developer • Backend Developer</p>
           </div>
           
           <div className="flex justify-center space-x-6 mb-6">
             <a 
-              href="https://github.com" 
+              href={SOCIAL_LINKS.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -41,7 +42,7 @@ const Index = () => {
               GitHub
             </a>
             <a 
-              href="https://linkedin.com" 
+              href={SOCIAL_LINKS.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -49,7 +50,7 @@ const Index = () => {
               LinkedIn
             </a>
             <a 
-              href="mailto:shhreyasrivastava@gmail.com"
+              href={getEmailLink()}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Email
@@ -58,11 +59,12 @@ const Index = () => {
           
           <div className="border-t border-border pt-6">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Shreya Srivastava. Crafted with ❤️ using React & Tailwind CSS.
+              © {new Date().getFullYear()} {PERSONAL_INFO.name}. Crafted with ❤️ using React & Tailwind CSS.
             </p>
             <p className="text-xs text-muted-foreground mt-2">
               Always open to new opportunities and exciting projects.
             </p>
+            <p>this website is under development</p>
           </div>
         </div>
       </footer>
