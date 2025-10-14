@@ -15,7 +15,7 @@ Welcome to my digital portfolio! This is a beautifully crafted, modern portfolio
 
 ## 🚀 Live Demo
 
-🌐 **[View Live Portfolio](https://your-portfolio-url.com)** *(Coming Soon)*
+🌐 **[View Live Portfolio](https://shreya-s-portfolio-delta.vercel.app/)**
 
 ## 🛠️ Tech Stack
 
