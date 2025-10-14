@@ -64,7 +64,6 @@ const Index = () => {
             <p className="text-xs text-muted-foreground mt-2">
               Always open to new opportunities and exciting projects.
             </p>
-            <p>this website is under development</p>
           </div>
         </div>
       </footer>
