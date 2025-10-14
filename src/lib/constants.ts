@@ -2,43 +2,43 @@
 // PERSONAL INFORMATION
 // =============================================================================
 export const PERSONAL_INFO = {
-  name: process.env.VITE_PERSONAL_NAME,
-  email: process.env.VITE_PERSONAL_EMAIL,
-  phone: process.env.VITE_PERSONAL_PHONE,
-  location: process.env.VITE_PERSONAL_LOCATION 
+  name: import.meta.env.VITE_PERSONAL_NAME,
+  email: import.meta.env.VITE_PERSONAL_EMAIL,
+  phone: import.meta.env.VITE_PERSONAL_PHONE,
+  location: import.meta.env.VITE_PERSONAL_LOCATION 
 } as const;
 
 // =============================================================================
 // SOCIAL MEDIA LINKS
 // =============================================================================
 export const SOCIAL_LINKS = {
-  github: process.env.VITE_GITHUB_URL ,
-  linkedin: process.env.VITE_LINKEDIN_URL,
-  instagram: process.env.VITE_INSTAGRAM_URL,
+  github: import.meta.env.VITE_GITHUB_URL ,
+  linkedin: import.meta.env.VITE_LINKEDIN_URL,
+  instagram: import.meta.env.VITE_INSTAGRAM_URL,
 } as const;
 
 // =============================================================================
 // PROFESSIONAL INFORMATION
 // =============================================================================
 export const PROFESSIONAL_INFO = {
-  currentCompany: process.env.VITE_CURRENT_COMPANY,
-  currentPosition: process.env.VITE_CURRENT_POSITION ,
-  availability: process.env.VITE_AVAILABILITY ,
+  currentCompany: import.meta.env.VITE_CURRENT_COMPANY,
+  currentPosition: import.meta.env.VITE_CURRENT_POSITION ,
+  availability: import.meta.env.VITE_AVAILABILITY ,
 } as const;
 
 // =============================================================================
 // CONTACT INFORMATION
 // =============================================================================
 export const CONTACT_INFO = {
-  availabilityText: process.env.VITE_CONTACT_AVAILABILITY_TEXT,
-  quickResponse: process.env.VITE_CONTACT_QUICK_RESPONSE ,
+  availabilityText: import.meta.env.VITE_CONTACT_AVAILABILITY_TEXT,
+  quickResponse: import.meta.env.VITE_CONTACT_QUICK_RESPONSE ,
 } as const;
 
 // =============================================================================
 // RESUME INFORMATION
 // =============================================================================
 export const RESUME_INFO = {
-  url: process.env.VITE_RESUME_URL,
+  url: '/src/assets/Shreya_Srivastava_Resume.pdf',
 } as const;
 
 // =============================================================================
@@ -90,6 +90,7 @@ export const EXPERIENCE_DATA = {
     'Engineered a JWT-based Single Sign-On (SSO) system, reducing authentication time by 40% and improving security for 1K+ users.',
     'Led full backend migration from MongoDB to PostgreSQL using Drizzle ORM, maintaining 100% feature parity while improving relational data processing speed by 30%',
     'Owned cross-functional UI improvements including: custom error pages (React), dynamic content management (Next.js), and internationalization of currency/date displays (JavaScript Intl).',
+    'Built a web scraper that collected 3,000+ transport contractor records across 37 Indian cities into MongoDB.'
   ],
   technologies: [
     'React.js', 'Node.js', 'TypeScript', 'MongoDB', 'Express.js',
@@ -111,16 +112,16 @@ export const COMPLETED_PROJECTS = [
     title: 'Flogram',
     description: 'Developed a social media web application enabling users to post and like photos, follow others, and edit their profiles.',
     technologies: ['React', 'Node.js', 'MongoDB','TailwindCSS', 'Express.js', 'Cloudinary', 'Git & Github'],
-    githubUrl: '#',
-    liveUrl: '#',
-    image: '💬',
+    githubUrl: 'https://github.com/chiyaw/Flogram',
+    liveUrl: 'https://flogram.vercel.app/',
+    image: '📸',
     status: 'Completed'
   },
   {
     title: 'Breast Cancer Detection Website',
     description: 'Designed a breast cancer detection system using SVM (94% accuracy) with Python/Scikit-learn, integrating a responsive frontend (HTML/CSS) and deploying via Ngrok for remote clinical validation.',
     technologies: ['React', 'TypeScript', 'Socket.io', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: '#',
+    githubUrl: 'https://github.com/chiyaw/Breast-Cancer',
     liveUrl: '#',
     image: '🩺',
     status: 'Completed'
@@ -161,7 +162,7 @@ export const IN_PROGRESS_PROJECTS = [
 export const SKILL_CATEGORIES = [
   {
     title: 'Frontend Development',
-    icon: 'Globe',
+    icon: 'Code',
     color: 'primary',
     skills: [
       'React.js', 'Next.js', 'TypeScript', 'JavaScript',
@@ -176,7 +177,7 @@ export const SKILL_CATEGORIES = [
     skills: [
       'Node.js', 'Express.js', 'Python', 'FastAPI',
       'RESTful APIs', 'JWT Authentication', 'Middleware',
-      'API Design'
+      'API Design', 'Drizzle ORM', 'API Testing', 'API Documentation', 'Railway',  'Cloudinary', 'OpenAI API'
     ]
   },
   {
@@ -185,7 +186,7 @@ export const SKILL_CATEGORIES = [
     color: 'accent',
     skills: [
       'MongoDB', 'PostgreSQL', 'MySQL',
-      'AWS', 'Google Cloud', 'Docker', 'Database Design'
+      'AWS', 'Google Cloud', 'Database Design', 'Drizzle ORM'
     ]
   },
   {
@@ -194,7 +195,7 @@ export const SKILL_CATEGORIES = [
     color: 'primary',
     skills: [
       'Git', 'GitHub', 'VS Code','Vite', 'npm/yarn',
-      'Postman', 'Figma', 'CodePen', 'Notion',
+      'Postman', 'Figma', 'CodePen', 'Notion', 'Postman', 'Railway', 'Drizzle ORM', 'Cloudinary', 'OpenAI API', 'Vercel',
       'Linux'
     ]
   }
@@ -269,7 +270,9 @@ export const RESUME_HIGHLIGHTS = [
     icon: 'GraduationCap',
     title: 'Education',
     items: [
-      'Bachelor\'s in Computer Applications'
+      'Bachelor\'s in Computer Applications from GGSIPU - 8.9 CGPA',
+      'ISC (Intermediate) in Commerce with Computer Science from BJSC',
+      'ICSE (Secondary) in Commerce with Computer Science from BJSC'
     ]
   },
   {

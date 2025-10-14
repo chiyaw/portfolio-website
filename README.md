@@ -1,15 +1,8 @@
-# 🌟 Tranquil Dev Folio
-
-> A modern, responsive portfolio website showcasing my journey as a Full Stack Developer
-
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react&logoColor=white)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+# 🌟 Shreya Srivastava's Portfolio
 
 ## ✨ Overview
 
-Welcome to my digital portfolio! This is a beautifully crafted, modern portfolio website that showcases my skills, projects, and professional journey as a **SDE** currently working at **BangHome**. The site features a clean, nature-inspired design with smooth animations and responsive layouts.
+Welcome to my digital portfolio! This is a beautifully crafted, modern portfolio website that showcases my skills, projects, and professional journey as a **Full Stack Developer Intern ** currently working at **BangHome**. The site features a clean, nature-inspired design with smooth animations and responsive layouts.
 
 ### 🎯 Key Features
 
@@ -84,7 +77,7 @@ tranquil-dev-folio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/chiyaw/tranquil-dev-folio.git
+   git clone https://github.com/chiyaw/portfolio-website
    cd tranquil-dev-folio
    ```
 
