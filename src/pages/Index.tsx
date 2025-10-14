@@ -28,7 +28,7 @@ const Index = () => {
       <footer className="bg-muted/50 border-t border-border py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="mb-6">
-            <h3 className="text-xl font-semibold text-gradient mb-2">{PERSONAL_INFO.name}</h3>
+            <h3 className="text-xl font-semibold text-gradient mb-2">Shreya Srivastava</h3>
             <p className="text-muted-foreground">Full Stack Developer • Frontend Developer • Backend Developer</p>
           </div>
           
